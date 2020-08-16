@@ -6,9 +6,9 @@ const nunjucks = require('nunjucks')
 const server  = express()
 
 //configs
+server.set('view engine', 'njk')
+server.use(express.static('src/public'))
 server.use(router)
-server.use(express.static('public'))
-server.set('view engine', 'html')
 
 nunjucks.configure('./src/views', {
     express:server,
@@ -16,7 +16,7 @@ nunjucks.configure('./src/views', {
 })
 
 server.listen(8080, ()=>{
-    console.log('Server is Running')
-})
+    console.log('Server is Running') 
+}) 
 
 
